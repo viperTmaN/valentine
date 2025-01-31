@@ -160,15 +160,16 @@
             cuisineContainer.style.display = 'block';
 
             const cuisineSelect = document.getElementById('cuisine-select');
-            cuisineSelect.addEventListener('change', function () {
+            cuisineSelect.onchange = function () {
                 const timeContainer = document.getElementById('time-container');
                 timeContainer.style.display = 'block';
+            };
 
                 const timeSelect = document.getElementById('time-select');
-                timeSelect.addEventListener('change', function () {
-                    const gamesContainer = document.getElementById('games-container');
-                    if (timeSelect.value) {
-                        gamesContainer.style.display = 'block';
+                timeSelect.onchange = function () {
+                const gamesContainer = document.getElementById('games-container');
+                gamesContainer.style.display = 'block';
+            };
                     }
                 });
                 }
