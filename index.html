@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Valentine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <title>will you be my valentine?</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&display=swap" rel="stylesheet">
     <style>
         body {
-            background: url('bg 2.jpg') no-repeat center center fixed;
+            background: url('valentine bg.jpg') no-repeat center center fixed;
             background-size: cover;
             margin: 0;
             padding: 0;
@@ -15,49 +15,163 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
             color: #9279ba;
-            font-family: 'Dancing Script', cursive;
-            position: relative;
-        }
-
-        .heading {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-align: center;
-            font-family: 'Pacifico', cursive;
-            color: #9279ba;
-        }
-
-        .heading span {
-            display: block;
-            font-size: 1.5rem;
+            overflow: hidden; /* Prevents elements from leaving screen */
         }
 
         .gif-container {
-            position: absolute;
-            top: 50%;
-            left: 10px;
-            transform: translateY(-50%);
+            margin-top: 5%;
+            text-align: center;
         }
 
         .gif-container img {
-            max-width: 150%;
+            max-width: 50%;
             height: auto;
         }
+
+        .text-container {
+            margin-top: 0.5%;
+            text-align: center;
+        }
+
+        .header {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header .heart {
+            font-size: 2rem;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .subheader {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subheader img {
+            max-height: 40px;
+            vertical-align: middle;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 40px;
+            position: relative;
+            justify-content: center;
+        }
+
+        .button {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            background: transparent;
+            color: #9279ba;
+            border: 2px solid #9279ba;
+            border-radius: 10px;
+            cursor: pointer;
+            padding: 10px 20px;
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .button:hover {
+            text-shadow: 0px 0px 8px #9279ba;
+        }
+
+        .button.no {
+            transition: transform 0.5s ease-in-out;
+            position: relative;
+        }
+
+        .oops-message {
+            display: none;
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            color: #ff0000;
+            margin-top: 20%;
+        }
     </style>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="heading">
-        YaaaaaaaaY!<br>
-        <span>/\__/\<br>
-        ( • . •)<br>
-        / > <3</span>
-    </div>
     <div class="gif-container">
-        <img src="bubu-dudu-sseeyall.gif" alt="Cute Bear with Rose">
+        <img src="jump bear.gif" alt="Cute Bear GIF">
     </div>
+    <div class="text-container">
+        <div class="header">
+            hi my love <span class="heart">&lt;3</span>
+        </div>
+        <div class="subheader">
+            will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="button yes" onclick="redirectToNextPage()">yes ;)</button>
+        <button class="button no" onclick="oopsWrongAnswer()" onmouseover="moveButton(this)">no :(</button>
+    </div>
+
+    <div class="oops-message">oops! wrong answer. try again!</div>
+
+    <script>
+        function redirectToNextPage() {
+            window.location.href = 'next.html';
+        }
+
+        function moveButton(button) {
+            const buttonRect = button.getBoundingClientRect();
+            let newX, newY;
+            const buffer = buttonRect.width * 2; // Ensure button moves farther away
+            const maxWidth = window.innerWidth - buffer;
+            const maxHeight = window.innerHeight - buffer;
+
+            do {
+                newX = Math.random() * maxWidth - (maxWidth / 2);
+                newY = Math.random() * maxHeight - (maxHeight / 2);
+            } while (
+                newX < 0 || newX > maxWidth ||
+                newY < 0 || newY > maxHeight ||
+                Math.abs(newX - buttonRect.left) < buffer &&
+                Math.abs(newY - buttonRect.top) < buffer
+            );
+
+            button.style.transform = `translate(${newX}px, ${newY}px)`;
+        }
+
+        function oopsWrongAnswer() {
+            document.body.innerHTML = "";
+            const message = document.createElement('div');
+            message.textContent = "Oops! Wrong answer. Try again!";
+            message.style.fontFamily = 'Pacifico, cursive';
+            message.style.fontSize = '2rem';
+            message.style.color = '#ff6961';
+            message.style.textAlign = 'center';
+            message.style.marginTop = '20%';
+            document.body.appendChild(message);
+
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000); // Reload the page after 3 seconds
+        }
+    </script>
 </body>
 </html>
