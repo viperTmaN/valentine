@@ -91,6 +91,7 @@
             padding: 10px 20px;
             overflow: hidden;
             transition: all 0.3s ease-in-out;
+            position: relative;
         }
 
         .button:hover {
@@ -128,14 +129,13 @@
         function moveButton(button) {
             const buttonRect = button.getBoundingClientRect();
             let newX, newY;
+            const buffer = buttonRect.width * 1.5; // Ensure button moves farther away
             do {
-                newX = Math.random() * (window.innerWidth - buttonRect.width * 2) - (window.innerWidth / 4);
-                newY = Math.random() * (window.innerHeight - buttonRect.height * 2) - (window.innerHeight / 4);
+                newX = Math.random() * (window.innerWidth - buffer * 2) - (window.innerWidth / 4);
+                newY = Math.random() * (window.innerHeight - buffer * 2) - (window.innerHeight / 4);
             } while (
-                newX < buttonRect.left + buttonRect.width &&
-                newX > buttonRect.left - buttonRect.width &&
-                newY < buttonRect.top + buttonRect.height &&
-                newY > buttonRect.top - buttonRect.height
+                Math.abs(newX - buttonRect.left) < buffer &&
+                Math.abs(newY - buttonRect.top) < buffer
             );
             button.style.transform = `translate(${newX}px, ${newY}px)`;
         }
