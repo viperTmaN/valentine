@@ -15,9 +15,23 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             text-align: center;
             color: #9279ba; /* Updated text color */
+        }
+
+        .gif-container {
+            margin-top: 10%; /* Add consistent gap between gif and top */
+            text-align: center;
+        }
+
+        .gif-container img {
+            max-width: 50%; /* Reduce size by half */
+            height: auto;
+        }
+
+        .text-container {
+            margin-top: 5%; /* Add consistent gap between gif and text */
         }
 
         .header {
@@ -26,9 +40,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: -14%; /* Move header up by 10% */
-            position: relative; /* Ensure text stays on top */
-            z-index: 2; /* Higher layer */
         }
 
         .header .heart {
@@ -48,31 +59,14 @@
         .subheader {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
-            margin-top: 0%; /* Move subheader up by 10% */
             display: flex;
             align-items: center;
             gap: 10px;
-            position: relative; /* Ensure text stays on top */
-            z-index: 2; /* Higher layer */
         }
 
         .subheader img {
             max-height: 40px; /* Size to fit within the line */
             vertical-align: middle;
-        }
-
-        .gif-container {
-            position: absolute;
-            top: 10%; /* Move slightly higher */
-            left: 50%;
-            transform: translate(-50%, 0); /* Center horizontally */
-            text-align: center;
-            z-index: 1; /* Lower layer */
-        }
-
-        .gif-container img {
-            max-width: 50%; /* Reduce size by half */
-            height: auto;
         }
     </style>
 </head>
@@ -80,11 +74,13 @@
     <div class="gif-container">
         <img src="jump bear.gif" alt="Cute Bear GIF">
     </div>
-    <div class="header">
-        Hi my love <span class="heart">&lt;3</span>
-    </div>
-    <div class="subheader">
-        Will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
+    <div class="text-container">
+        <div class="header">
+            Hi my love <span class="heart">&lt;3</span>
+        </div>
+        <div class="subheader">
+            Will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
+        </div>
     </div>
 </body>
 </html>
