@@ -126,9 +126,18 @@
         }
 
         function moveButton(button) {
-            const x = Math.random() * (window.innerWidth / 2) - (window.innerWidth / 4);
-            const y = Math.random() * 50 - 25;
-            button.style.transform = `translate(${x}px, ${y}px)`;
+            const buttonRect = button.getBoundingClientRect();
+            let newX, newY;
+            do {
+                newX = Math.random() * (window.innerWidth - buttonRect.width * 2) - (window.innerWidth / 4);
+                newY = Math.random() * (window.innerHeight - buttonRect.height * 2) - (window.innerHeight / 4);
+            } while (
+                newX < buttonRect.left + buttonRect.width &&
+                newX > buttonRect.left - buttonRect.width &&
+                newY < buttonRect.top + buttonRect.height &&
+                newY > buttonRect.top - buttonRect.height
+            );
+            button.style.transform = `translate(${newX}px, ${newY}px)`;
         }
     </script>
 </body>
