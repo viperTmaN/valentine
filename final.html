@@ -156,7 +156,9 @@
             const cuisineSelect = document.getElementById('cuisine-select');
             cuisineSelect.addEventListener('change', function () {
                 const timeContainer = document.getElementById('time-container');
-                timeContainer.style.display = 'block';
+                if (cuisineSelect.value) {
+                    timeContainer.style.display = 'block';
+                }
             });
         }
     </script>
