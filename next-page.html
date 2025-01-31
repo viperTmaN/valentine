@@ -36,6 +36,7 @@
     </style>
 </head>
 <body>
+    
     <div class="message">
         
         <p>hope i brought a smile to your face!<3</p>
@@ -48,5 +49,17 @@
 / > <3
         </pre>
     </div>
+    <script>
+        const data = JSON.parse(localStorage.getItem('selectedData'));
+
+        if (data) {
+            document.getElementById('selected-date').textContent = data.date;
+            document.getElementById('selected-cuisine').textContent = data.cuisine;
+            document.getElementById('selected-time').textContent = data.time;
+            document.getElementById('selected-games').textContent = data.games;
+        } else {
+            document.querySelector('.message').textContent = "Oops! Something went wrong. Please go back and try again.";
+        }
+    </script>
 </body>
 </html>
