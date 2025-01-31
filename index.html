@@ -76,6 +76,7 @@
             margin-top: 20px;
             display: flex;
             gap: 20px;
+            position: relative;
         }
 
         .button {
@@ -83,11 +84,13 @@
             font-size: 1.5rem;
             background: transparent;
             color: #9279ba;
-            border: none;
+            border: 2px solid #9279ba;
+            border-radius: 10px;
             cursor: pointer;
             padding: 10px 20px;
             position: relative;
             overflow: hidden;
+            transition: all 0.3s ease-in-out;
         }
 
         .button:hover {
@@ -96,15 +99,7 @@
 
         .button.no {
             position: absolute;
-        }
-
-        @keyframes move-button {
-            from {
-                transform: translate(0, 0);
-            }
-            to {
-                transform: translate(50px, 0);
-            }
+            transition: transform 0.5s ease-in-out;
         }
     </style>
 </head>
@@ -131,10 +126,9 @@
         }
 
         function moveButton(button) {
-            const x = Math.random() * (window.innerWidth - 100);
-            const y = Math.random() * (window.innerHeight - 50);
-            button.style.left = `${x}px`;
-            button.style.top = `${y}px`;
+            const x = Math.random() * (window.innerWidth - 200);
+            const y = Math.random() * (window.innerHeight - 100);
+            button.style.transform = `translate(${x}px, ${y}px)`;
         }
     </script>
 </body>
