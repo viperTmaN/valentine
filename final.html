@@ -128,6 +128,14 @@
         <input type="time" id="time-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
     </div>
 
+    <div id="games-container" style="display: none; margin-top: 20px; text-align: center;">
+        <p style="font-size: 1.5rem; color: #9279ba;">Play some games after?</p>
+        <div class="button-container">
+            <button class="button" onclick="selectGameOption('yes')">Yes</button>
+            <button class="button" onclick="selectGameOption('no')">No</button>
+        </div>
+    </div>
+
     <div class="gif-left">
         <img src="hello.gif" alt="Left GIF">
     </div>
@@ -154,12 +162,25 @@
             const cuisineSelect = document.getElementById('cuisine-select');
             cuisineSelect.addEventListener('change', function () {
                 const timeContainer = document.getElementById('time-container');
-                if (cuisineSelect.value) {
-                    timeContainer.style.display = 'block';
+                timeContainer.style.display = 'block';
+
+                const timeSelect = document.getElementById('time-select');
+                timeSelect.addEventListener('change', function () {
+                    const gamesContainer = document.getElementById('games-container');
+                    if (timeSelect.value) {
+                        gamesContainer.style.display = 'block';
+                    }
+                });
                 }
             });
+        }
+            function selectGameOption(option) {
+            if (option === 'yes') {
+                alert('Yay! We will play some games! 🎮');
+            } else {
+                alert('No worries! We will just enjoy our time together! 😊');
+            }
         }
     </script>
 </body>
 </html>
-
