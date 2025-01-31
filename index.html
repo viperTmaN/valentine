@@ -17,21 +17,21 @@
             align-items: center;
             justify-content: flex-start;
             text-align: center;
-            color: #9279ba; /* Updated text color */
+            color: #9279ba;
         }
 
         .gif-container {
-            margin-top: 0.5%; /* Reduce gap between gif and top */
+            margin-top: 5%;
             text-align: center;
         }
 
         .gif-container img {
-            max-width: 50%; /* Reduce size by half */
+            max-width: 50%;
             height: auto;
         }
 
         .text-container {
-            margin-top: 1%; /* Further reduce gap between gif and text */
+            margin-top: 0.5%;
             text-align: center;
         }
 
@@ -39,7 +39,7 @@
             font-family: 'Pacifico', cursive;
             font-size: 3rem;
             display: flex;
-            justify-content: center; /* Center align text */
+            justify-content: center;
             align-items: center;
             gap: 10px;
         }
@@ -62,14 +62,49 @@
             font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
             display: flex;
-            justify-content: center; /* Center align text */
+            justify-content: center;
             align-items: center;
             gap: 10px;
         }
 
         .subheader img {
-            max-height: 40px; /* Size to fit within the line */
+            max-height: 40px;
             vertical-align: middle;
+        }
+
+        .button-container {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .button {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            background: transparent;
+            color: #9279ba;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            text-shadow: 0px 0px 8px #9279ba;
+        }
+
+        .button.no {
+            position: absolute;
+        }
+
+        @keyframes move-button {
+            from {
+                transform: translate(0, 0);
+            }
+            to {
+                transform: translate(50px, 0);
+            }
         }
     </style>
 </head>
@@ -85,5 +120,22 @@
             Will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
         </div>
     </div>
+    <div class="button-container">
+        <button class="button yes" onclick="showYesMessage()">yes ;)</button>
+        <button class="button no" onmouseover="moveButton(this)">no :(</button>
+    </div>
+
+    <script>
+        function showYesMessage() {
+            alert("Yay! Can't wait for our special day! ❤️");
+        }
+
+        function moveButton(button) {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
 </body>
 </html>
