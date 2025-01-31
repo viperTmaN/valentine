@@ -132,17 +132,19 @@
             const containerRect = document.querySelector('.button-container').getBoundingClientRect();
 
             let newX, newY;
-            const buffer = 100; // Minimum distance to move
+            const moveDistance = 150; // Ensure a significant movement distance
 
             do {
-                newX = Math.random() * (containerRect.width - buttonRect.width - buffer) + buffer / 2;
-                newY = Math.random() * (containerRect.height - buttonRect.height - buffer) + buffer / 2;
+                newX = Math.random() * (containerRect.width - buttonRect.width);
+                newY = Math.random() * (containerRect.height - buttonRect.height);
             } while (
+                Math.abs(newX - buttonRect.left) < moveDistance ||
+                Math.abs(newY - buttonRect.top) < moveDistance ||
                 newX + buttonRect.width > containerRect.width ||
                 newY + buttonRect.height > containerRect.height
             );
 
-            button.style.transform = `translate(${newX}px, ${newY}px)`;
+            button.style.transform = `translate(${newX - buttonRect.left}px, ${newY - buttonRect.top}px)`;
         }
     </script>
 </body>
