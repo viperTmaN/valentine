@@ -119,22 +119,6 @@
         </select>
     </div>
 
-    <div id="cuisine-container" style="display: none; margin-top: 20px; text-align: center;">
-        <label for="cuisine-select" style="font-size: 1.5rem; color: #9279ba;">Pick a cuisine:</label>
-        <select id="cuisine-select" onchange="selectCuisine(this)" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
-            <option value="european">European</option>
-            <option value="american">American</option>
-            <option value="viet">Vietnamese</option>
-            <option value="indian">Indian</option>
-            <option value="korean">Korean</option>
-            <option value="chinese">Chinese</option>
-            <option value="japanese">Japanese</option>
-            <option value="mexican">Mexican</option>
-            <option value="other">Other</option>
-        </select>
-        <div id="selected-cuisine" style="margin-top: 10px; font-size: 1.5rem; color: #9279ba;"></div>
-    </div>
-
     <div class="gif-left">
         <img src="hello.gif" alt="Left GIF">
     </div>
@@ -160,16 +144,6 @@
             // Show the cuisine selection dropdown
             const cuisineContainer = document.getElementById('cuisine-container');
             cuisineContainer.style.display = 'block';
-            const selectedCuisine = document.getElementById('selected-cuisine');
-            selectedCuisine.textContent = ''; // Reset the selected cuisine display
-        }
-            function selectCuisine(select) {
-            const selectedCuisine = document.getElementById('selected-cuisine');
-            if (select.value) {
-                selectedCuisine.textContent = `You selected: ${select.options[select.selectedIndex].text}`;
-                select.style.background = '#9279ba';
-                select.style.color = '#ffffff';
-            }
         }
     </script>
 </body>
