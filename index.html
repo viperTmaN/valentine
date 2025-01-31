@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Background</title>
+    <title>Custom Background with GIF</title>
     <style>
         body {
             background: url('valentine bg.jpg') no-repeat center center fixed;
@@ -12,8 +12,24 @@
             padding: 0;
             height: 100vh;
         }
+
+        .gif-container {
+            position: absolute;
+            top: 25%; /* 1/4th from the top */
+            left: 50%;
+            transform: translate(-50%, 0); /* Center horizontally */
+            text-align: center;
+        }
+
+        .gif-container img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
+    <div class="gif-container">
+        <img src="jump bear.gif" alt="Cute Bear GIF">
+    </div>
 </body>
 </html>
