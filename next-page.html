@@ -37,27 +37,15 @@
 </head>
 <body>
     <div class="message">
-        <p>Thank you for sharing your preferences!</p>
-        <p>You selected <span class="highlight" id="selected-date"></span> as the date.</p>
-        <p>Your choice of cuisine is <span class="highlight" id="selected-cuisine"></span>.</p>
-        <p>The time you picked is <span class="highlight" id="selected-time"></span>.</p>
-        <p>And your answer to playing games after is <span class="highlight" id="selected-games"></span>.</p>
-        <p>Can't wait to make this the most amazing date ever!</p>
+        
+        <p>Hope I brought a smile to your face!<3</p>
+        <p>I'm so excited, I cant wait!</p>
+            <pre style="font-family: 'Pacifico', cursive; font-size: 1.5rem; line-height: 1.2; margin-top: 20px;">
+/\__/\
+( • . •)
+/ > <3
+        </pre>
     </div>
-
-    <script>
-        // Retrieve data from localStorage
-        const data = JSON.parse(localStorage.getItem('selectedData'));
-
-        if (data) {
-            document.getElementById('selected-date').textContent = data.date;
-            document.getElementById('selected-cuisine').textContent = data.cuisine;
-            document.getElementById('selected-time').textContent = data.time;
-            document.getElementById('selected-games').textContent = data.games;
-        } else {
-            document.querySelector('.message').textContent = "Oops! Something went wrong. Please go back and try again.";
-        }
-    </script>
 </body>
 </html>
 
