@@ -57,22 +57,25 @@
         .gif-left {
             position: absolute;
             left: 0;
-            bottom: 10%;
-            transform: translateY(0);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: -1;
         }
 
         .gif-center {
             position: absolute;
-            bottom: 10%;
+            top: 50%;
             left: 50%;
-            transform: translate(-50%, 0);
+            transform: translate(-50%, -50%);
+            z-index: -1;
         }
 
         .gif-right {
             position: absolute;
             right: 0;
-            bottom: 10%;
-            transform: translateY(0);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: -1;
         }
 
         .gif-left img {
@@ -122,12 +125,7 @@
 
     <div id="time-container" style="display: none; margin-top: 20px; text-align: center;">
         <label for="time-select" style="font-size: 1.5rem; color: #9279ba;">Pick a time:</label>
-        <select id="time-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
-            <option value="" disabled selected></option>
-            <option value="morning">Morning</option>
-            <option value="afternoon">Afternoon</option>
-            <option value="evening">Evening</option>
-        </select>
+        <input type="time" id="time-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
     </div>
 
     <div class="gif-left">
