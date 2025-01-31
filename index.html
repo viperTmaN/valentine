@@ -118,13 +118,13 @@
         </div>
     </div>
     <div class="button-container">
-        <button class="button yes" onclick="showYesMessage()">yes ;)</button>
+        <button class="button yes" onclick="redirectToNextPage()">yes ;)</button>
         <button class="button no" onmouseover="moveButton(this)">no :(</button>
     </div>
 
     <script>
-        function showYesMessage() {
-            alert("Yay! Can't wait for our special day! ❤️");
+        function redirectToNextPage() {
+            window.location.href = 'next.html';
         }
 
         function moveButton(button) {
@@ -149,4 +149,3 @@
     </script>
 </body>
 </html>
-
