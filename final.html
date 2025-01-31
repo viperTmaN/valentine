@@ -53,6 +53,33 @@
             background: #9279ba;
             color: #ffffff;
         }
+
+        .gif-left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .gif-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 50%;
+        }
+
+        .gif-right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -65,6 +92,10 @@
         <button class="button" onclick="selectDate(this, '15 Feb')">15 Feb</button>
         <button class="button" onclick="selectDate(this, '16 Feb')">16 Feb</button>
     </div>
+
+    <img src="bubu-dudu-sseeyall.gif" alt="Left GIF" class="gif-left">
+    <img src="transparent-hearts.gif" alt="Center GIF" class="gif-center">
+    <img src="holding-hands.gif" alt="Right GIF" class="gif-right">
 
     <script>
         function selectDate(button, date) {
@@ -81,4 +112,3 @@
     </script>
 </body>
 </html>
-
