@@ -181,8 +181,20 @@
             buttons.forEach(btn => btn.classList.remove('selected'));
             button.classList.add('selected');
             document.getElementById('cuisine-container').style.display = 'block';
-            document.getElementById('time-container').style.display = 'block';
-            document.getElementById('games-container').style.display = 'block';
+            const cuisineSelect = document.getElementById('cuisine-select');
+
+            cuisineSelect.addEventListener('change', function () {
+                if (cuisineSelect.value) {
+                    document.getElementById('games-container').style.display = 'block';
+                    const gameButtons = document.querySelectorAll('#games-container .button');
+
+                    gameButtons.forEach(btn => {
+                        btn.addEventListener('click', function () {
+                            document.getElementById('time-container').style.display = 'block';
+                        });
+                    });
+                }
+            });
         }
             function selectGameOption(button, option) {
             const buttons = document.querySelectorAll('#games-container .button');
