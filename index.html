@@ -20,13 +20,24 @@
             color: #9279ba;
         }
 
+        .header,
+        .subheader {
+            margin: 0;
+            padding: 0;
+        }
+
+        .text-container {
+            margin-top: 20px; /* Move text below the bear */
+            text-align: center;
+        }
+
         .header {
             font-family: 'Pacifico', cursive;
             font-size: 3rem;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            margin-top: -50px; /* Move text higher */
         }
 
         .header .heart {
@@ -46,9 +57,9 @@
         .subheader {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
-            margin-top: -30px; /* Move text higher */
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
         }
 
@@ -58,28 +69,28 @@
         }
 
         .gif-container {
-            position: absolute;
-            top: 10%; /* Move slightly higher */
-            left: 50%;
-            transform: translate(-50%, 0); /* Center horizontally */
+            position: relative;
+            top: -50px; /* Adjust bear position */
             text-align: center;
         }
 
         .gif-container img {
-            max-width: 50%; /* Reduce size by half */
+            max-width: 30%; /* Reduce bear size */
             height: auto;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        Hi my love <span class="heart">&lt;3</span>
-    </div>
-    <div class="subheader">
-        Will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
-    </div>
     <div class="gif-container">
         <img src="jump bear.gif" alt="Cute Bear GIF">
+    </div>
+    <div class="text-container">
+        <div class="header">
+            Hi my love <span class="heart">&lt;3</span>
+        </div>
+        <div class="subheader">
+            Will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
+        </div>
     </div>
 </body>
 </html>
