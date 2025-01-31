@@ -177,7 +177,7 @@
             cuisineContainer.style.display = 'block';
 
             const cuisineSelect = document.getElementById('cuisine-select');
-            cuisineSelect.addEventListener('change', function () {
+            cuisineSelect.onchange = function () {
                 const timeContainer = document.getElementById('time-container');
                 timeContainer.style.display = 'block';
 
@@ -191,9 +191,9 @@
                     }
                 }
                 
-                hourSelect.addEventListener('change', checkTimeSelection);
-                minuteSelect.addEventListener('change', checkTimeSelection);
-                ampmSelect.addEventListener('change', checkTimeSelection);
+                hourSelect.onchange = checkTimeSelection;
+                minuteSelect.onchange = checkTimeSelection;
+                ampmSelect.onchange = checkTimeSelection;
                 }
             });
         }
