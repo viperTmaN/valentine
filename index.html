@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Background with GIF</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&display=swap" rel="stylesheet">
     <style>
         body {
             background: url('valentine bg.jpg') no-repeat center center fixed;
@@ -11,6 +12,48 @@
             margin: 0;
             padding: 0;
             height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .header {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header .heart {
+            font-size: 2rem;
+            animation: bounce 1.5s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .subheader {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .subheader img {
+            max-height: 40px; /* Size to fit within the line */
+            vertical-align: middle;
         }
 
         .gif-container {
@@ -28,6 +71,12 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        Hi my love <span class="heart">&lt;3</span>
+    </div>
+    <div class="subheader">
+        Will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
+    </div>
     <div class="gif-container">
         <img src="jump bear.gif" alt="Cute Bear GIF">
     </div>
