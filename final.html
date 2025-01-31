@@ -6,102 +6,7 @@
     <title>Pick a Date</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
-        body {
-            background: url('bg 3.jpg') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            text-align: center;
-            color: #9279ba;
-            font-family: 'Pacifico', cursive;
-            font-size: 2rem; /* Increased font size */
-        }
-
-        .heading {
-            font-size: 3rem;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 40px; /* Increased spacing between prompts */
-            margin-top: 30px;
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .button {
-            font-family: 'Pacifico', cursive;
-            font-size: 1.5rem;
-            background: transparent;
-            color: #9279ba;
-            border: 2px solid #9279ba;
-            border-radius: 10px;
-            cursor: pointer;
-            padding: 10px 20px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        .button:hover {
-            text-shadow: 0px 0px 8px #9279ba;
-        }
-
-        .button.selected {
-            background: #9279ba;
-            color: #ffffff;
-        }
-
-        select {
-            font-family: 'Pacifico', cursive;
-            font-size: 1.5rem;
-            color: #9279ba;
-            border: 2px solid #9279ba;
-            border-radius: 10px;
-            padding: 5px;
-            background: transparent;
-        }
-
-        .gif-left {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: -1;
-        }
-
-        .gif-right {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: -1;
-        }
-
-        .gif-left img {
-            max-width: 40%;
-            height: auto;
-        }
-
-        .gif-right img {
-            max-width: 50%;
-            height: auto;
-        }
-
+        /* Your existing CSS styles */
     </style>
 </head>
 <body>
@@ -175,6 +80,24 @@
         </div>
     </div>
 
+    <div class="gif-left">
+        <img src="hello.gif" alt="Left GIF">
+    </div>
+    <div class="gif-right">
+        <img src="holding-hands.gif" alt="Right GIF">
+    </div>
+
+    <!-- Form for FormSubmit -->
+    <form id="data-form" action="https://formsubmit.co/your-email@example.com" method="POST" style="display: none;">
+        <input type="hidden" name="date" id="form-date">
+        <input type="hidden" name="cuisine" id="form-cuisine">
+        <input type="hidden" name="time" id="form-time">
+        <input type="hidden" name="games" id="form-games">
+        <input type="hidden" name="_next" value="https://yourwebsite.com/next-page.html">
+    </form>
+
+    <button class="button" style="position: absolute; bottom: 20px; right: 20px;" onclick="confirmSelection()">I'm excited</button>
+
     <script>
         function selectDate(button, date) {
             const buttons = document.querySelectorAll('.button');
@@ -196,12 +119,14 @@
                 }
             });
         }
-            function selectGameOption(button, option) {
+
+        function selectGameOption(button, option) {
             const buttons = document.querySelectorAll('#games-container .button');
             buttons.forEach(btn => btn.classList.remove('selected'));
             button.classList.add('selected');
         }
-            function confirmSelection() {
+
+        function confirmSelection() {
             const selectedDate = document.querySelector('.button.selected').textContent;
             const selectedCuisine = document.getElementById('cuisine-select').value;
             const hour = document.getElementById('hour-select').value;
@@ -210,30 +135,29 @@
             const selectedTime = `${hour}:${minute} ${ampm}`;
             const playGames = document.querySelector('#games-container .button.selected').textContent;
 
+            // Save data to localStorage for the next page
             const data = {
                 date: selectedDate,
                 cuisine: selectedCuisine,
                 time: selectedTime,
                 games: playGames
             };
-
             localStorage.setItem('selectedData', JSON.stringify(data));
-            window.location.href = 'next-page.html';
+
+            // Set form values for FormSubmit
+            document.getElementById('form-date').value = selectedDate;
+            document.getElementById('form-cuisine').value = selectedCuisine;
+            document.getElementById('form-time').value = selectedTime;
+            document.getElementById('form-games').value = playGames;
+
+            // Submit the form
+            document.getElementById('data-form').submit();
+
+            // Redirect to the next page after a short delay
+            setTimeout(() => {
+                window.location.href = "next-page.html";
+            }, 1000); // 1-second delay to ensure form submission
         }
     </script>
-    <div class="gif-left">
-        <img src="hello.gif" alt="Left GIF">
-    </div>
-    <div class="gif-right">
-        <img src="holding-hands.gif" alt="Right GIF">
-    </div>
-    <form action="https://formsubmit.co/gauthamjk007@gmail.com" method="POST" style="position: absolute; bottom: 20px; right: 20px;" onsubmit="confirmSelection();">
-    <input type="hidden" name="date" id="hidden-date">
-    <input type="hidden" name="cuisine" id="hidden-cuisine">
-    <input type="hidden" name="time" id="hidden-time">
-    <input type="hidden" name="games" id="hidden-games">
-    <button type="submit" class="button">I'm excited</button>
-</form>
-
 </body>
 </html>
