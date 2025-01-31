@@ -103,6 +103,14 @@
             transition: transform 0.5s ease-in-out;
             position: relative;
         }
+
+        .oops-message {
+            display: none;
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            color: #ff0000;
+            margin-top: 20%;
+        }
     </style>
 </head>
 <body>
@@ -119,8 +127,10 @@
     </div>
     <div class="button-container">
         <button class="button yes" onclick="redirectToNextPage()">yes ;)</button>
-        <button class="button no" onmouseover="moveButton(this)">no :(</button>
+        <button class="button no" onclick="oopsWrongAnswer()">no :(</button>
     </div>
+
+    <div class="oops-message">Oops! Wrong answer. Try again!</div>
 
     <script>
         function redirectToNextPage() {
@@ -145,6 +155,18 @@
             );
 
             button.style.transform = `translate(${newX}px, ${newY}px)`;
+        }
+
+        function oopsWrongAnswer() {
+            document.body.innerHTML = "";
+            const message = document.createElement('div');
+            message.textContent = "Oops! Wrong answer. Try again!";
+            message.style.fontFamily = 'Pacifico, cursive';
+            message.style.fontSize = '2rem';
+            message.style.color = '#ff0000';
+            message.style.textAlign = 'center';
+            message.style.marginTop = '20%';
+            document.body.appendChild(message);
         }
     </script>
 </body>
