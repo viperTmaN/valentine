@@ -87,18 +87,15 @@
         <img src="holding-hands.gif" alt="Right GIF">
     </div>
 
-    <!-- Form for FormSubmit -->
-    <form id="data-form" action="https://formsubmit.co/your-email@example.com" method="POST" style="display: none;">
-        <input type="hidden" name="date" id="form-date">
-        <input type="hidden" name="cuisine" id="form-cuisine">
-        <input type="hidden" name="time" id="form-time">
-        <input type="hidden" name="games" id="form-games">
-        <input type="hidden" name="_next" value="https://yourwebsite.com/next-page.html">
-    </form>
-
     <button class="button" style="position: absolute; bottom: 20px; right: 20px;" onclick="confirmSelection()">I'm excited</button>
 
+    <!-- Include EmailJS library -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // Initialize EmailJS with your Public Key
+        emailjs.init('LyN-n3MRSWewLKNBO');
+
+        // Your existing functions
         function selectDate(button, date) {
             const buttons = document.querySelectorAll('.button');
             buttons.forEach(btn => btn.classList.remove('selected'));
@@ -126,7 +123,7 @@
             button.classList.add('selected');
         }
 
-        function confirmSelection() {
+        async function confirmSelection() {
             const selectedDate = document.querySelector('.button.selected').textContent;
             const selectedCuisine = document.getElementById('cuisine-select').value;
             const hour = document.getElementById('hour-select').value;
@@ -135,7 +132,7 @@
             const selectedTime = `${hour}:${minute} ${ampm}`;
             const playGames = document.querySelector('#games-container .button.selected').textContent;
 
-            // Save data to localStorage for the next page
+            // Save data to localStorage for the next page (if needed)
             const data = {
                 date: selectedDate,
                 cuisine: selectedCuisine,
@@ -144,19 +141,21 @@
             };
             localStorage.setItem('selectedData', JSON.stringify(data));
 
-            // Set form values for FormSubmit
-            document.getElementById('form-date').value = selectedDate;
-            document.getElementById('form-cuisine').value = selectedCuisine;
-            document.getElementById('form-time').value = selectedTime;
-            document.getElementById('form-games').value = playGames;
+            // Send email using EmailJS
+            try {
+                await emailjs.send('service_zrttgrp', 'template_dwaxm8g', {
+                    date: selectedDate,
+                    cuisine: selectedCuisine,
+                    time: selectedTime,
+                    games: playGames
+                });
+                console.log('Email sent successfully!');
+            } catch (error) {
+                console.error('Error sending email:', error);
+            }
 
-            // Submit the form
-            document.getElementById('data-form').submit();
-
-            // Redirect to the next page after a short delay
-            setTimeout(() => {
-                window.location.href = "next-page.html";
-            }, 1000); // 1-second delay to ensure form submission
+            // Redirect to the next page
+            window.location.href = "next-page.html";
         }
     </script>
 </body>
