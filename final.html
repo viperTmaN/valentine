@@ -1,1 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a Date</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('bg 3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            color: #9279ba;
+            font-family: 'Pacifico', cursive;
+        }
+
+        .heading {
+            font-size: 3rem;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .button-container {
+            margin-top: 50px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .button {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            background: transparent;
+            color: #9279ba;
+            border: 2px solid #9279ba;
+            border-radius: 10px;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            text-shadow: 0px 0px 8px #9279ba;
+        }
+
+        .button.selected {
+            background: #9279ba;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="heading">
+        Pick a date for a Date!!
+    </div>
+
+    <div class="button-container">
+        <button class="button" onclick="selectDate(this, '14 Feb')">14 Feb</button>
+        <button class="button" onclick="selectDate(this, '15 Feb')">15 Feb</button>
+        <button class="button" onclick="selectDate(this, '16 Feb')">16 Feb</button>
+    </div>
+
+    <script>
+        function selectDate(button, date) {
+            // Remove the 'selected' class from all buttons
+            const buttons = document.querySelectorAll('.button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+
+            // Add the 'selected' class to the clicked button
+            button.classList.add('selected');
+
+            // Alert the selected date
+            alert(`You selected ${date}! Can't wait for our date! ❤️`);
+        }
+    </script>
+</body>
+</html>
 
