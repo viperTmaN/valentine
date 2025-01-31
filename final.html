@@ -27,9 +27,20 @@
             text-align: center;
         }
 
-        .button-container {
-            margin-top: 50px;
+        .container {
+            width: 100%;
+            max-width: 800px;
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
             gap: 20px;
         }
 
@@ -52,6 +63,16 @@
         .button.selected {
             background: #9279ba;
             color: #ffffff;
+        }
+
+        select {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            color: #9279ba;
+            border: 2px solid #9279ba;
+            border-radius: 10px;
+            padding: 5px;
+            background: transparent;
         }
 
         .gif-left {
@@ -87,67 +108,69 @@
         Pick a date for a Date!!
     </div>
 
-    <div class="button-container">
-        <button class="button" onclick="selectDate(this, '14 Feb')">14 Feb</button>
-        <button class="button" onclick="selectDate(this, '15 Feb')">15 Feb</button>
-        <button class="button" onclick="selectDate(this, '16 Feb')">16 Feb</button>
-    </div>
-
-    <div id="cuisine-container" style="display: none; margin-top: 20px; text-align: center;">
-        <label for="cuisine-select" style="font-size: 1.5rem; color: #9279ba;">Pick a cuisine:</label>
-        <select id="cuisine-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
-            <option value="" disabled selected></option>
-            <option value="mediterranean">Mediterranean</option>
-            <option value="caribbean">Caribbean</option>
-            <option value="american">American</option>
-            <option value="viet">Vietnamese</option>
-            <option value="indian">Indian</option>
-            <option value="korean">Korean</option>
-            <option value="chinese">Chinese</option>
-            <option value="japanese">Japanese</option>
-            <option value="mexican">Mexican</option>
-            <option value="thai">Thai</option>
-        </select>
-    </div>
-
-    <div id="games-container" style="display: none; margin-top: 20px; text-align: center;">
-        <p style="font-size: 1.5rem; color: #9279ba;">Play some games after?</p>
+    <div class="container">
         <div class="button-container">
-            <button class="button" onclick="selectGameOption(this, 'yes')">Yes</button>
-            <button class="button" onclick="selectGameOption(this, 'no')">No</button>
+            <button class="button" onclick="selectDate(this, '14 Feb')">14 Feb</button>
+            <button class="button" onclick="selectDate(this, '15 Feb')">15 Feb</button>
+            <button class="button" onclick="selectDate(this, '16 Feb')">16 Feb</button>
         </div>
-    </div>
 
-    <div id="time-container" style="display: none; margin-top: 20px; text-align: center;">
-        <label style="font-size: 1.5rem; color: #9279ba;">Pick a time:</label>
-        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
-            <select id="hour-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
-                <option value="" disabled selected>Hour</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
+        <div id="cuisine-container" style="display: none;">
+            <label for="cuisine-select">Pick a cuisine:</label>
+            <select id="cuisine-select">
+                <option value="" disabled selected></option>
+                <option value="mediterranean">Mediterranean</option>
+                <option value="caribbean">Caribbean</option>
+                <option value="american">American</option>
+                <option value="viet">Vietnamese</option>
+                <option value="indian">Indian</option>
+                <option value="korean">Korean</option>
+                <option value="chinese">Chinese</option>
+                <option value="japanese">Japanese</option>
+                <option value="mexican">Mexican</option>
+                <option value="thai">Thai</option>
             </select>
-            <select id="minute-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
-                <option value="" disabled selected>Minute</option>
-                <option value="00">00</option>
-                <option value="15">15</option>
-                <option value="30">30</option>
-                <option value="45">45</option>
-            </select>
-            <select id="ampm-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
-                <option value="" disabled selected>AM/PM</option>
-                <option value="AM">AM</option>
-                <option value="PM">PM</option>
-            </select>
+        </div>
+
+        <div id="games-container" style="display: none;">
+            <p>Play some games after?</p>
+            <div class="button-container">
+                <button class="button" onclick="selectGameOption(this, 'yes')">Yes</button>
+                <button class="button" onclick="selectGameOption(this, 'no')">No</button>
+            </div>
+        </div>
+
+        <div id="time-container" style="display: none;">
+            <label>Pick a time:</label>
+            <div class="button-container">
+                <select id="hour-select">
+                    <option value="" disabled selected>Hour</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <select id="minute-select">
+                    <option value="" disabled selected>Minute</option>
+                    <option value="00">00</option>
+                    <option value="15">15</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                </select>
+                <select id="ampm-select">
+                    <option value="" disabled selected>AM/PM</option>
+                    <option value="AM">AM</option>
+                    <option value="PM">PM</option>
+                </select>
+            </div>
         </div>
     </div>
 
