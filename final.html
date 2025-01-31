@@ -110,6 +110,14 @@
         </select>
     </div>
 
+    <div id="games-container" style="display: none; margin-top: 20px; text-align: center;">
+        <p style="font-size: 1.5rem; color: #9279ba;">Play some games after?</p>
+        <div class="button-container">
+            <button class="button" onclick="selectGameOption(this, 'yes')">Yes</button>
+            <button class="button" onclick="selectGameOption(this, 'no')">No</button>
+        </div>
+    </div>
+
     <div id="time-container" style="display: none; margin-top: 20px; text-align: center;">
         <label style="font-size: 1.5rem; color: #9279ba;">Pick a time:</label>
         <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
@@ -150,6 +158,12 @@
             button.classList.add('selected');
             document.getElementById('cuisine-container').style.display = 'block';
             document.getElementById('time-container').style.display = 'block';
+            document.getElementById('games-container').style.display = 'block';
+        }
+            function selectGameOption(button, option) {
+            const buttons = document.querySelectorAll('#games-container .button');
+            buttons.forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
         }
     </script>
 </body>
