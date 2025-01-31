@@ -59,7 +59,6 @@
             left: 0;
             top: 45%;
             transform: translateY(-50%);
-            max-width: 40%;
         }
 
         .gif-center {
@@ -67,7 +66,6 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            max-width: 50%;
         }
 
         .gif-right {
@@ -75,13 +73,23 @@
             right: 0;
             top: 50%;
             transform: translateY(-50%);
-            max-width: 50%;
         }
 
-        img {
-            max-width: 100%;
+        .gif-left img {
+            max-width: 40%;
             height: auto;
         }
+
+        .gif-center img {
+            max-width: 50%;
+            height: auto;
+        }
+
+        .gif-right img {
+            max-width: 50%;
+            height: auto;
+        }
+
     </style>
 </head>
 <body>
@@ -95,9 +103,15 @@
         <button class="button" onclick="selectDate(this, '16 Feb')">16 Feb</button>
     </div>
 
-    <img src="hello.gif" alt="Left GIF" class="gif-left">
-    <img src="transparent-hearts.gif" alt="Center GIF" class="gif-center">
-    <img src="holding-hands.gif" alt="Right GIF" class="gif-right">
+    <div class="gif-left">
+        <img src="hello.gif" alt="Left GIF">
+    </div>
+    <div class="gif-center">
+        <img src="transparent-hearts.gif" alt="Center GIF">
+    </div>
+    <div class="gif-right">
+        <img src="holding-hands.gif" alt="Right GIF">
+    </div>
 
     <script>
         function selectDate(button, date) {
