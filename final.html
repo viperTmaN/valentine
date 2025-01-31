@@ -19,7 +19,7 @@
             text-align: center;
             color: #9279ba;
             font-family: 'Pacifico', cursive;
-            font-size: 2rem; /* Increased font size */
+            font-size: 2rem;
         }
 
         .heading {
@@ -35,7 +35,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 40px; /* Increased spacing between prompts */
+            gap: 40px;
             margin-top: 30px;
         }
 
@@ -101,7 +101,6 @@
             max-width: 50%;
             height: auto;
         }
-
     </style>
 </head>
 <body>
@@ -131,6 +130,7 @@
                 <option value="mexican">Mexican</option>
                 <option value="thai">Thai</option>
             </select>
+
         </div>
 
         <div id="games-container" style="display: none;">
@@ -175,59 +175,54 @@
         </div>
     </div>
 
+    <form action="https://formsubmit.co/gauthamjk007@gmail.com" method="POST">
+        <input type="hidden" name="date" id="hidden-date">
+        <input type="hidden" name="cuisine" id="hidden-cuisine">
+        <input type="hidden" name="time" id="hidden-time">
+        <input type="hidden" name="games" id="hidden-games">
+        <button type="submit" class="button" style="position: absolute; bottom: 20px; right: 20px;">I'm excited</button>
+    </form>
+
     <script>
         function selectDate(button, date) {
             const buttons = document.querySelectorAll('.button');
             buttons.forEach(btn => btn.classList.remove('selected'));
             button.classList.add('selected');
             document.getElementById('cuisine-container').style.display = 'block';
-            const cuisineSelect = document.getElementById('cuisine-select');
-
-            cuisineSelect.addEventListener('change', function () {
-                if (cuisineSelect.value) {
-                    document.getElementById('games-container').style.display = 'block';
-                    const gameButtons = document.querySelectorAll('#games-container .button');
-
-                    gameButtons.forEach(btn => {
-                        btn.addEventListener('click', function () {
-                            document.getElementById('time-container').style.display = 'block';
-                        });
-                    });
-                }
-            });
+            document.getElementById('hidden-date').value = date;
         }
-            function selectGameOption(button, option) {
+
+        function selectGameOption(button, option) {
             const buttons = document.querySelectorAll('#games-container .button');
             buttons.forEach(btn => btn.classList.remove('selected'));
             button.classList.add('selected');
+            document.getElementById('hidden-games').value = option;
         }
-            function confirmSelection() {
-            const selectedDate = document.querySelector('.button.selected').textContent;
-            const selectedCuisine = document.getElementById('cuisine-select').value;
-            const hour = document.getElementById('hour-select').value;
-            const minute = document.getElementById('minute-select').value;
-            const ampm = document.getElementById('ampm-select').value;
-            const selectedTime = `${hour}:${minute} ${ampm}`;
-            const playGames = document.querySelector('#games-container .button.selected').textContent;
 
-            const data = {
-                date: selectedDate,
-                cuisine: selectedCuisine,
-                time: selectedTime,
-                games: playGames
-            };
+        document.getElementById('cuisine-select').addEventListener('change', function () {
+            document.getElementById('hidden-cuisine').value = this.value;
+            document.getElementById('games-container').style.display = 'block';
+        });
 
-            localStorage.setItem('selectedData', JSON.stringify(data));
-            window.location.href = 'next-page.html';
-        }
+        const timeSelectors = ['hour-select', 'minute-select', 'ampm-select'];
+        timeSelectors.forEach(id => {
+            document.getElementById(id).addEventListener('change', function () {
+                const hour = document.getElementById('hour-select').value;
+                const minute = document.getElementById('minute-select').value;
+                const ampm = document.getElementById('ampm-select').value;
+
+                if (hour && minute && ampm) {
+                    document.getElementById('hidden-time').value = `${hour}:${minute} ${ampm}`;
+                }
+            });
+        });
     </script>
+
     <div class="gif-left">
         <img src="hello.gif" alt="Left GIF">
     </div>
     <div class="gif-right">
         <img src="holding-hands.gif" alt="Right GIF">
     </div>
-    <button class="button" style="position: absolute; bottom: 20px; right: 20px;" onclick="confirmSelection()">I'm excited</button>
-
 </body>
 </html>
