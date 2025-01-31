@@ -18,7 +18,7 @@
             justify-content: flex-start;
             text-align: center;
             color: #9279ba;
-            overflow: hidden;
+            overflow: hidden; /* Prevents elements from leaving screen */
         }
 
         .gif-container {
@@ -118,34 +118,35 @@
         </div>
     </div>
     <div class="button-container">
-        <button class="button yes" onclick="redirectToNextPage()">yes ;)</button>
+        <button class="button yes" onclick="showYesMessage()">yes ;)</button>
         <button class="button no" onmouseover="moveButton(this)">no :(</button>
     </div>
 
     <script>
-        function redirectToNextPage() {
-            window.location.href = 'next.html';
+        function showYesMessage() {
+            alert("Yay! Can't wait for our special day! ❤️");
         }
 
         function moveButton(button) {
             const buttonRect = button.getBoundingClientRect();
-            const containerRect = document.querySelector('.button-container').getBoundingClientRect();
-
             let newX, newY;
-            const moveDistance = 150; // Ensure a significant movement distance
+            const buffer = buttonRect.width * 2; // Ensure button moves farther away
+            const maxWidth = window.innerWidth - buffer;
+            const maxHeight = window.innerHeight - buffer;
 
             do {
-                newX = Math.random() * (containerRect.width - buttonRect.width);
-                newY = Math.random() * (containerRect.height - buttonRect.height);
+                newX = Math.random() * maxWidth - (maxWidth / 2);
+                newY = Math.random() * maxHeight - (maxHeight / 2);
             } while (
-                Math.abs(newX - buttonRect.left) < moveDistance ||
-                Math.abs(newY - buttonRect.top) < moveDistance ||
-                newX + buttonRect.width > containerRect.width ||
-                newY + buttonRect.height > containerRect.height
+                newX < 0 || newX > maxWidth ||
+                newY < 0 || newY > maxHeight ||
+                Math.abs(newX - buttonRect.left) < buffer &&
+                Math.abs(newY - buttonRect.top) < buffer
             );
 
-            button.style.transform = `translate(${newX - buttonRect.left}px, ${newY - buttonRect.top}px)`;
+            button.style.transform = `translate(${newX}px, ${newY}px)`;
         }
     </script>
 </body>
 </html>
+
