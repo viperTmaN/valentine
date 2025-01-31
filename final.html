@@ -62,8 +62,6 @@
             z-index: -1;
         }
 
-        
-
         .gif-right {
             position: absolute;
             right: 0;
@@ -76,8 +74,6 @@
             max-width: 40%;
             height: auto;
         }
-
-        
 
         .gif-right img {
             max-width: 50%;
@@ -101,8 +97,8 @@
         <label for="cuisine-select" style="font-size: 1.5rem; color: #9279ba;">Pick a cuisine:</label>
         <select id="cuisine-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
             <option value="" disabled selected></option>
-            <option value="mediterranean">Mediterranean</option>
-<option value="caribbean">Caribbean</option>
+            <option value="mediterranean">Mediterranean</option>
+            <option value="caribbean">Caribbean</option>
             <option value="american">American</option>
             <option value="viet">Vietnamese</option>
             <option value="indian">Indian</option>
@@ -111,7 +107,7 @@
             <option value="japanese">Japanese</option>
             <option value="mexican">Mexican</option>
             <option value="thai">Thai</option>
-            </select>
+        </select>
     </div>
 
     <div id="time-container" style="display: none; margin-top: 20px; text-align: center;">
@@ -147,33 +143,13 @@
         </div>
     </div>
 
-    <div class="gif-left">
-        <img src="hello.gif" alt="Left GIF">
-    </div>
-    
-    <div class="gif-right">
-        <img src="holding-hands.gif" alt="Right GIF">
-    </div>
-
     <script>
         function selectDate(button, date) {
-            // Remove the 'selected' class from all buttons
             const buttons = document.querySelectorAll('.button');
             buttons.forEach(btn => btn.classList.remove('selected'));
-
-            // Add the 'selected' class to the clicked button
             button.classList.add('selected');
-
-            // Show the cuisine selection dropdown
-            const cuisineContainer = document.getElementById('cuisine-container');
-            const timeContainer = document.getElementById('time-container');
-            cuisineContainer.style.display = 'block';
-            timeContainer.style.display = 'block';
-
-            const cuisineSelect = document.getElementById('cuisine-select');
-            
-                }
-            });
+            document.getElementById('cuisine-container').style.display = 'block';
+            document.getElementById('time-container').style.display = 'block';
         }
     </script>
 </body>
