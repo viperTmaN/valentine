@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Background with GIF</title>
+    <title>will you be my valentine?</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Dancing+Script&display=swap" rel="stylesheet">
     <style>
         body {
@@ -119,10 +119,10 @@
     </div>
     <div class="text-container">
         <div class="header">
-            Hi my love <span class="heart">&lt;3</span>
+            hi my love <span class="heart">&lt;3</span>
         </div>
         <div class="subheader">
-            Will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
+            will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
         </div>
     </div>
     <div class="button-container">
@@ -130,7 +130,7 @@
         <button class="button no" onclick="oopsWrongAnswer()" onmouseover="moveButton(this)">no :(</button>
     </div>
 
-    <div class="oops-message">Oops! Wrong answer. Try again!</div>
+    <div class="oops-message">oops! wrong answer. try again!</div>
 
     <script>
         function redirectToNextPage() {
@@ -163,10 +163,14 @@
             message.textContent = "Oops! Wrong answer. Try again!";
             message.style.fontFamily = 'Pacifico, cursive';
             message.style.fontSize = '2rem';
-            message.style.color = '#ff0000';
+            message.style.color = '#ff6961';
             message.style.textAlign = 'center';
             message.style.marginTop = '20%';
             document.body.appendChild(message);
+
+            setTimeout(() => {
+                window.location.reload();
+            }, 3000); // Reload the page after 3 seconds
         }
     </script>
 </body>
