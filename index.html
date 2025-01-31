@@ -17,18 +17,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: #9279ba;
-        }
-
-        .header,
-        .subheader {
-            margin: 0;
-            padding: 0;
-        }
-
-        .text-container {
-            margin-top: 20px; /* Move text below the bear */
-            text-align: center;
+            color: #fff;
         }
 
         .header {
@@ -36,7 +25,6 @@
             font-size: 3rem;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
         }
 
@@ -57,9 +45,9 @@
         .subheader {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
+            margin-top: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
             gap: 10px;
         }
 
@@ -69,28 +57,28 @@
         }
 
         .gif-container {
-            position: relative;
-            top: -50px; /* Adjust bear position */
+            position: absolute;
+            top: 10%; /* Move slightly higher */
+            left: 50%;
+            transform: translate(-50%, 0); /* Center horizontally */
             text-align: center;
         }
 
         .gif-container img {
-            max-width: 30%; /* Reduce bear size */
+            max-width: 50%; /* Reduce size by half */
             height: auto;
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        Hi my love <span class="heart">&lt;3</span>
+    </div>
+    <div class="subheader">
+        Will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
+    </div>
     <div class="gif-container">
         <img src="jump bear.gif" alt="Cute Bear GIF">
-    </div>
-    <div class="text-container">
-        <div class="header">
-            Hi my love <span class="heart">&lt;3</span>
-        </div>
-        <div class="subheader">
-            Will you be my valentine? <img src="UwU.png" alt="Cute Emoji">
-        </div>
     </div>
 </body>
 </html>
