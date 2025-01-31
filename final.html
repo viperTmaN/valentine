@@ -97,7 +97,7 @@
         <button class="button" onclick="selectDate(this, '16 Feb')">16 Feb</button>
     </div>
 
-    <div id="cuisine-container" style="display: none; margin-top: 20px; text-align: center;">
+    <div id="cuisine-container" style="display: block; margin-top: 20px; text-align: center;">
         <label for="cuisine-select" style="font-size: 1.5rem; color: #9279ba;">Pick a cuisine:</label>
         <select id="cuisine-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
             <option value="" disabled selected></option>
@@ -147,14 +147,6 @@
         </div>
     </div>
 
-    <div id="games-container" style="display: none; margin-top: 20px; text-align: center;">
-        <p style="font-size: 1.5rem; color: #9279ba;">Play some games after?</p>
-        <div class="button-container">
-            <button class="button" onclick="selectGameOption('yes')">Yes</button>
-            <button class="button" onclick="selectGameOption('no')">No</button>
-        </div>
-    </div>
-
     <div class="gif-left">
         <img src="hello.gif" alt="Left GIF">
     </div>
@@ -177,32 +169,12 @@
             cuisineContainer.style.display = 'block';
 
             const cuisineSelect = document.getElementById('cuisine-select');
-            cuisineSelect.onchange = function () {
+            cuisineSelect.addEventListener('change', function () {
                 const timeContainer = document.getElementById('time-container');
-                timeContainer.style.display = 'block';
-
-                const hourSelect = document.getElementById('hour-select');
-                const minuteSelect = document.getElementById('minute-select');
-                const ampmSelect = document.getElementById('ampm-select');
-                
-                function checkTimeSelection() {
-                    if (hourSelect.value && minuteSelect.value && ampmSelect.value) {
-                        document.getElementById('games-container').style.display = 'block';
-                    }
-                }
-                
-                hourSelect.onchange = checkTimeSelection;
-                minuteSelect.onchange = checkTimeSelection;
-                ampmSelect.onchange = checkTimeSelection;
+                if (cuisineSelect.value) {
+                    timeContainer.style.display = 'block';
                 }
             });
-        }
-            function selectGameOption(option) {
-            if (option === 'yes') {
-                alert('Yay! We will play some games! 🎮');
-            } else {
-                alert('No worries! We will just enjoy our time together! 😊');
-            }
         }
     </script>
 </body>
