@@ -18,6 +18,7 @@
             justify-content: flex-start;
             text-align: center;
             color: #9279ba;
+            overflow: hidden; /* Prevents elements from leaving screen */
         }
 
         .gif-container {
@@ -129,14 +130,20 @@
         function moveButton(button) {
             const buttonRect = button.getBoundingClientRect();
             let newX, newY;
-            const buffer = buttonRect.width * 1.5; // Ensure button moves farther away
+            const buffer = buttonRect.width * 2; // Ensure button moves farther away
+            const maxWidth = window.innerWidth - buffer;
+            const maxHeight = window.innerHeight - buffer;
+
             do {
-                newX = Math.random() * (window.innerWidth - buffer * 2) - (window.innerWidth / 4);
-                newY = Math.random() * (window.innerHeight - buffer * 2) - (window.innerHeight / 4);
+                newX = Math.random() * maxWidth - (maxWidth / 2);
+                newY = Math.random() * maxHeight - (maxHeight / 2);
             } while (
+                newX < 0 || newX > maxWidth ||
+                newY < 0 || newY > maxHeight ||
                 Math.abs(newX - buttonRect.left) < buffer &&
                 Math.abs(newY - buttonRect.top) < buffer
             );
+
             button.style.transform = `translate(${newX}px, ${newY}px)`;
         }
     </script>
