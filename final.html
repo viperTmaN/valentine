@@ -124,8 +124,35 @@
     </div>
 
     <div id="time-container" style="display: none; margin-top: 20px; text-align: center;">
-        <label for="time-select" style="font-size: 1.5rem; color: #9279ba;">Pick a time:</label>
-        <input type="time" id="time-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
+        <label style="font-size: 1.5rem; color: #9279ba;">Pick a time:</label>
+        <div style="display: flex; gap: 10px; justify-content: center; margin-top: 10px;">
+            <select id="hour-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
+                <option value="" disabled selected>Hour</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <select id="minute-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
+                <option value="" disabled selected>Minute</option>
+                <option value="00">00</option>
+                <option value="15">15</option>
+                <option value="30">30</option>
+                <option value="45">45</option>
+            </select>
+            <select id="ampm-select" style="font-family: 'Pacifico', cursive; font-size: 1.5rem; color: #9279ba; border: 2px solid #9279ba; border-radius: 10px; padding: 5px; background: transparent;">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+            </select>
+        </div>
     </div>
 
     <div class="gif-left">
