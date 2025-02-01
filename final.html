@@ -93,7 +93,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         // Initialize EmailJS with your Public Key
-        emailjs.init('LyN-n3MRSWewLKNBO');
+        emailjs.init('31ciTan9YOQ6R2zMn');
 
         // Your existing functions
         function selectDate(button, date) {
@@ -123,40 +123,40 @@
             button.classList.add('selected');
         }
 
-        async function confirmSelection() {
-            const selectedDate = document.querySelector('.button.selected').textContent;
-            const selectedCuisine = document.getElementById('cuisine-select').value;
-            const hour = document.getElementById('hour-select').value;
-            const minute = document.getElementById('minute-select').value;
-            const ampm = document.getElementById('ampm-select').value;
-            const selectedTime = `${hour}:${minute} ${ampm}`;
-            const playGames = document.querySelector('#games-container .button.selected').textContent;
+async function confirmSelection() {
+    const selectedDate = document.querySelector('.button.selected').textContent;
+    const selectedCuisine = document.getElementById('cuisine-select').value;
+    const hour = document.getElementById('hour-select').value;
+    const minute = document.getElementById('minute-select').value;
+    const ampm = document.getElementById('ampm-select').value;
+    const selectedTime = `${hour}:${minute} ${ampm}`;
+    const playGames = document.querySelector('#games-container .button.selected').textContent;
 
-            // Save data to localStorage for the next page (if needed)
-            const data = {
-                date: selectedDate,
-                cuisine: selectedCuisine,
-                time: selectedTime,
-                games: playGames
-            };
-            localStorage.setItem('selectedData', JSON.stringify(data));
+    // Save data to localStorage for the next page (if needed)
+    const data = {
+        date: selectedDate,
+        cuisine: selectedCuisine,
+        time: selectedTime,
+        games: playGames
+    };
+    localStorage.setItem('selectedData', JSON.stringify(data));
 
-            // Send email using EmailJS
-            try {
-                await emailjs.send('service_zrttgrp', 'template_dwaxm8g', {
-                    date: selectedDate,
-                    cuisine: selectedCuisine,
-                    time: selectedTime,
-                    games: playGames
-                });
-                console.log('Email sent successfully!');
-            } catch (error) {
-                console.error('Error sending email:', error);
-            }
+    // Send email using EmailJS
+    try {
+        await emailjs.send('service_arttgrp', 'template_dwaxm8g', {
+            date: selectedDate,
+            cuisine: selectedCuisine,
+            time: selectedTime,
+            games: playGames
+        });
+        console.log('Email sent successfully!');
+    } catch (error) {
+        console.error('Error sending email:', error);
+    }
 
-            // Redirect to the next page
-            window.location.href = "next-page.html";
-        }
+    // Redirect to the next page
+    window.location.href = "next-page.html";
+}
     </script>
 </body>
 </html>
