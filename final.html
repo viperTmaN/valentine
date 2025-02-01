@@ -6,7 +6,102 @@
     <title>Pick a Date</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <style>
-        /* Your existing CSS styles */
+        body {
+            background: url('bg 3.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: center;
+            color: #9279ba;
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem; /* Increased font size */
+        }
+
+        .heading {
+            font-size: 3rem;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px; /* Increased spacing between prompts */
+            margin-top: 30px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .button {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            background: transparent;
+            color: #9279ba;
+            border: 2px solid #9279ba;
+            border-radius: 10px;
+            cursor: pointer;
+            padding: 10px 20px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            text-shadow: 0px 0px 8px #9279ba;
+        }
+
+        .button.selected {
+            background: #9279ba;
+            color: #ffffff;
+        }
+
+        select {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.5rem;
+            color: #9279ba;
+            border: 2px solid #9279ba;
+            border-radius: 10px;
+            padding: 5px;
+            background: transparent;
+        }
+
+        .gif-left {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+
+        .gif-right {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: -1;
+        }
+
+        .gif-left img {
+            max-width: 40%;
+            height: auto;
+        }
+
+        .gif-right img {
+            max-width: 50%;
+            height: auto;
+        }
+
     </style>
 </head>
 <body>
